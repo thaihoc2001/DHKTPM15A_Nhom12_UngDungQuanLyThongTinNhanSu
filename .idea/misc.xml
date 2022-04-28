@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Hoc_tren_truong/Nam_3/DHKTPM15A_Nhom12_UngDungQuanLyThongTinNhanSu/app/src/main/res/drawable/border_input.xml" value="0.205" />
+        <entry key="..\:/Hoc_tren_truong/Nam_3/DHKTPM15A_Nhom12_UngDungQuanLyThongTinNhanSu/app/src/main/res/layout/add_employee.xml" value="0.33" />
+        <entry key="..\:/Hoc_tren_truong/Nam_3/DHKTPM15A_Nhom12_UngDungQuanLyThongTinNhanSu/app/src/main/res/layout/boder.xml" value="0.1762917933130699" />
+        <entry key="..\:/Hoc_tren_truong/Nam_3/DHKTPM15A_Nhom12_UngDungQuanLyThongTinNhanSu/app/src/main/res/layout/boder_input.xml" value="0.1762917933130699" />
+        <entry key="..\:/Hoc_tren_truong/Nam_3/DHKTPM15A_Nhom12_UngDungQuanLyThongTinNhanSu/app/src/main/res/layout/border.xml" value="0.1762917933130699" />
+        <entry key="..\:/Hoc_tren_truong/Nam_3/DHKTPM15A_Nhom12_UngDungQuanLyThongTinNhanSu/app/src/main/res/layout/employee_detail.xml" value="0.33" />
+        <entry key="..\:/Hoc_tren_truong/Nam_3/DHKTPM15A_Nhom12_UngDungQuanLyThongTinNhanSu/app/src/main/res/layout/item_list_employee.xml" value="0.33" />
+        <entry key="..\:/Hoc_tren_truong/Nam_3/DHKTPM15A_Nhom12_UngDungQuanLyThongTinNhanSu/app/src/main/res/layout/list_employee.xml" value="0.22" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
