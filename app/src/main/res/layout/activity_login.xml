@@ -12,14 +12,14 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/brain" />
 
     <EditText
-        android:id="@+id/btnUserName"
+        android:id="@+id/edtUserName"
         android:layout_width="335dp"
         android:layout_height="55dp"
         android:layout_marginTop="44dp"
@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/btnEmail"
+        android:id="@+id/edtPassword"
         android:layout_width="335dp"
         android:layout_height="55dp"
         android:layout_marginTop="32dp"
@@ -50,10 +50,10 @@
         android:paddingLeft="10dp"
         android:shadowColor="#7A6E6E"
         android:textColorHint="#D1CCCC"
-        app:layout_constraintEnd_toEndOf="@+id/btnUserName"
+        app:layout_constraintEnd_toEndOf="@+id/edtUserName"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnUserName"
-        app:layout_constraintTop_toBottomOf="@+id/btnUserName" />
+        app:layout_constraintStart_toStartOf="@+id/edtUserName"
+        app:layout_constraintTop_toBottomOf="@+id/edtUserName" />
 
     <CheckBox
         android:id="@+id/chkKeepLogin"
@@ -63,10 +63,10 @@
         android:text="Keep loggered in me"
         android:textColor="#DDDCDC"
         android:textSize="19sp"
-        app:layout_constraintEnd_toEndOf="@+id/btnEmail"
+        app:layout_constraintEnd_toEndOf="@+id/edtPassword"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnEmail"
-        app:layout_constraintTop_toBottomOf="@+id/btnEmail" />
+        app:layout_constraintStart_toStartOf="@+id/edtPassword"
+        app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -79,8 +79,8 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:cornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/btnEmail"
-        app:layout_constraintStart_toStartOf="@+id/btnEmail"
+        app:layout_constraintEnd_toEndOf="@+id/edtPassword"
+        app:layout_constraintStart_toStartOf="@+id/edtPassword"
         app:layout_constraintTop_toBottomOf="@+id/chkKeepLogin" />
 
     <Button
@@ -93,11 +93,11 @@
         android:textSize="15sp"
         android:textStyle="bold"
         app:cornerRadius="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.242"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/txtFogetPass"
@@ -134,9 +134,9 @@
         android:textSize="19sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintHorizontal_bias="0.149"
+        app:layout_constraintHorizontal_bias="0.074"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.022" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/brain" />
 
     <EditText
-        android:id="@+id/btnUserName"
+        android:id="@+id/edtUserName"
         android:layout_width="335dp"
         android:layout_height="55dp"
         android:layout_marginTop="28dp"
@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/btnEmail"
+        android:id="@+id/edtPassword"
         android:layout_width="335dp"
         android:layout_height="55dp"
         android:layout_marginTop="28dp"
@@ -50,10 +50,10 @@
         android:paddingLeft="10dp"
         android:shadowColor="#7A6E6E"
         android:textColorHint="#D1CCCC"
-        app:layout_constraintEnd_toEndOf="@+id/btnUserName"
+        app:layout_constraintEnd_toEndOf="@+id/edtUserName"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnUserName"
-        app:layout_constraintTop_toBottomOf="@+id/btnUserName" />
+        app:layout_constraintStart_toStartOf="@+id/edtUserName"
+        app:layout_constraintTop_toBottomOf="@+id/edtUserName" />
 
     <EditText
         android:id="@+id/btnConfirm"
@@ -68,9 +68,9 @@
         android:paddingLeft="10dp"
         android:shadowColor="#7A6E6E"
         android:textColorHint="#D1CCCC"
-        app:layout_constraintEnd_toEndOf="@+id/btnUserName"
+        app:layout_constraintEnd_toEndOf="@+id/edtUserName"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnUserName"
+        app:layout_constraintStart_toStartOf="@+id/edtUserName"
         app:layout_constraintTop_toBottomOf="@+id/btnPassWord" />
 
     <EditText
@@ -86,10 +86,10 @@
         android:paddingLeft="10dp"
         android:shadowColor="#7A6E6E"
         android:textColorHint="#D1CCCC"
-        app:layout_constraintEnd_toEndOf="@+id/btnUserName"
+        app:layout_constraintEnd_toEndOf="@+id/edtUserName"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnUserName"
-        app:layout_constraintTop_toBottomOf="@+id/btnEmail" />
+        app:layout_constraintStart_toStartOf="@+id/edtUserName"
+        app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -102,9 +102,9 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:cornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/btnEmail"
+        app:layout_constraintEnd_toEndOf="@+id/edtPassword"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnEmail"
+        app:layout_constraintStart_toStartOf="@+id/edtPassword"
         app:layout_constraintTop_toBottomOf="@+id/btnConfirm" />
 
     <Button
