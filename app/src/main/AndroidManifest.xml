@@ -19,6 +19,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activity.ListEmployeeActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activity.RegisterActivity"
             android:exported="false">
         </activity>
@@ -26,10 +35,10 @@
             android:name=".activity.EmployeeDetailActivity"
             android:exported="false">
         </activity>
-        <activity
-            android:name=".activity.ListEmployeeActivity"
-            android:exported="false">
-        </activity>
+<!--        <activity-->
+<!--            android:name=".activity.ListEmployeeActivity"-->
+<!--            android:exported="false">-->
+<!--        </activity>-->
         <activity
             android:name=".activity.HomeActivity"
             android:exported="false">
