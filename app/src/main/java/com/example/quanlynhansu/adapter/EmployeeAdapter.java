@@ -1,71 +1,54 @@
 package com.example.quanlynhansu.adapter;
 
-
 import android.content.Context;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.quanlynhansu.R;
 import com.example.quanlynhansu.entity.Employee;
+import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 
-public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.EmployeeViewHolder> {
+public class EmployeeAdapter extends BaseAdapter {
+    Context ctx;
+    ArrayList<Employee> arrayList;
 
-    Context context;
-    ArrayList<Employee> listEmployee;
-
-    public EmployeeAdapter(Context context, ArrayList<Employee> listEmployee) {
-        this.context = context;
-        this.listEmployee = listEmployee;
-    }
-
-    @NonNull
-    @Override
-    public EmployeeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.item_list_employee,parent,false);
-
-        return new EmployeeViewHolder(v);
+    public EmployeeAdapter(Context ctx, ArrayList<Employee> arrayList) {
+        this.ctx = ctx;
+        this.arrayList = arrayList;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EmployeeViewHolder holder, int position) {
-
-        Employee employee = listEmployee.get(position);
-        holder.name.setText(employee.getName());
-        holder.position.setText(employee.getPosition());
-        holder.age.setText(String.valueOf(employee.getAge()));
-//        try {
-//            holder.image.setImageBitmap(BitmapFactory.decodeStream(new URL(employee.getImage()).openConnection().getInputStream()));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+    public int getCount() {
+        return arrayList.size();
     }
 
     @Override
-    public int getItemCount() {
-        return listEmployee.size();
+    public Object getItem(int i) {
+        return null;
     }
 
-    public static  class EmployeeViewHolder extends RecyclerView.ViewHolder{
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
 
-        TextView name, position, age;
-        ImageView image;
-        public EmployeeViewHolder(@NonNull View itemView) {
-            super(itemView);
-            name = itemView.findViewById(R.id.txtName_item);
-            position = itemView.findViewById(R.id.txtPosition_item);
-            age = itemView.findViewById(R.id.txtAge_item);
-            image = itemView.findViewById(R.id.imgAvartar_item);
-        }
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        view = LayoutInflater.from(ctx).inflate(R.layout.item_list_employee,viewGroup,false);
+        TextView name = view.findViewById(R.id.txtName_item);
+        TextView position = view.findViewById(R.id.txtPosition_item);
+        TextView age = view.findViewById(R.id.txtAge_item);
+        ImageView imageView = view.findViewById(R.id.imgAvartar_item);
+        name.setText(arrayList.get(i).getName());
+        position.setText(arrayList.get(i).getPosition());
+        age.setText(String.valueOf(arrayList.get(i).getAge()));
+        Picasso.get().load(arrayList.get(i).getImage()).into(imageView);
+        return view;
     }
 }

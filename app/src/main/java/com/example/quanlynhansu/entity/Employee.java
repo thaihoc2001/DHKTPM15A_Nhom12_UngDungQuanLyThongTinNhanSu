@@ -1,10 +1,12 @@
 package com.example.quanlynhansu.entity;
 
 public class Employee {
+    private int id;
     private String name;
     private String position;
     private String image;
     private int age;
+    private String description;
 
     public String getName() {
         return name;
@@ -37,6 +39,15 @@ public class Employee {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 
     @Override
     public String toString() {

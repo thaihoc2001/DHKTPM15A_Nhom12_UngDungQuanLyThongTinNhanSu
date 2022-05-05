@@ -6,12 +6,9 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quanlynhansu.R;
 import com.example.quanlynhansu.adapter.EmployeeAdapter;
-import com.example.quanlynhansu.adapter.EmployeeAdapter1;
 import com.example.quanlynhansu.entity.Employee;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,7 +22,7 @@ public class ListEmployeeActivity extends AppCompatActivity {
 
 //    RecyclerView recyclerView;
     ListView listView;
-    EmployeeAdapter1 employeeAdapter1;
+    EmployeeAdapter employeeAdapter1;
     DatabaseReference database;
 //    EmployeeAdapter employeeAdapter;
     ArrayList<Employee> list;
@@ -43,7 +40,7 @@ public class ListEmployeeActivity extends AppCompatActivity {
 //
         list = new ArrayList<Employee>();
 //        employeeAdapter = new EmployeeAdapter(this, list);
-        employeeAdapter1 = new EmployeeAdapter1(this, list);
+        employeeAdapter1 = new EmployeeAdapter(this, list);
         listView.setAdapter(employeeAdapter1);
 //        recyclerView.setAdapter(employeeAdapter);
         database.addListenerForSingleValueEvent(new ValueEventListener() {
