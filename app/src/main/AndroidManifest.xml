@@ -20,24 +20,31 @@
         </activity>
         <activity
             android:name=".activity.RegisterActivity"
-            android:exported="false">
+            android:exported="false"
+            android:usesCleartextTraffic="true">
         </activity>
         <activity
             android:name=".activity.EmployeeDetailActivity"
-            android:exported="false">
+            android:exported="false"
+            android:usesCleartextTraffic="true">
         </activity>
         <activity
             android:name=".activity.ListEmployeeActivity"
-            android:exported="false">
+            android:exported="false"
+            android:usesCleartextTraffic="true">
         </activity>
         <activity
             android:name=".activity.HomeActivity"
-            android:exported="false">
+            android:exported="false"
+            android:usesCleartextTraffic="true">
         </activity>
         <activity
             android:name=".activity.AddEmployeeActivity"
-            android:exported="false">
+            android:exported="false"
+            android:usesCleartextTraffic="true">
+
         </activity>
+
     </application>
 
 </manifest>

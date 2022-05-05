@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 public class LoginActivity extends AppCompatActivity {
-    Button btnLogin;
+    Button btnLogin,btnCreate;
     EditText edtUserName, edtPassword;
     private FirebaseAuth mAuth;
     @Override
@@ -28,8 +28,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         btnLogin = findViewById(R.id.btnLogin);
+        btnCreate=findViewById(R.id.btnLoginNow);
         edtUserName = findViewById(R.id.edtUserName);
-        edtPassword = findViewById(R.id.edtPassword);
+        edtPassword = findViewById(R.id.edtGmail);
 
         mAuth = FirebaseAuth.getInstance();
         btnLogin.setOnClickListener((v) -> {
@@ -43,7 +44,16 @@ public class LoginActivity extends AppCompatActivity {
             }
             else {signIn();}
         });
+        btnCreate.setOnClickListener(view -> {
+            CreateNow();
+        });
     }
+
+    private void CreateNow() {
+        final  Intent intentCreate= new Intent(this,RegisterActivity.class);
+        startActivity(intentCreate);
+    }
+
     private void signIn(){
 
         String email = edtUserName.getText().toString();
