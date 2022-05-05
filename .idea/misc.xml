@@ -3,13 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/ThaiHoc/AndroidStudioProjects/QuanLyNhanSu/app/src/main/res/layout/activity_login.xml" value="0.3625" />
-        <entry key="..\:/Users/ThaiHoc/AndroidStudioProjects/QuanLyNhanSu/app/src/main/res/layout/activity_main.xml" value="0.3625" />
-        <entry key="..\:/Users/ThaiHoc/AndroidStudioProjects/QuanLyNhanSu/app/src/main/res/layout/activity_register.xml" value="0.3625" />
-        <entry key="..\:/Users/ThaiHoc/AndroidStudioProjects/QuanLyNhanSu/app/src/main/res/layout/add_employee.xml" value="0.3625" />
-        <entry key="..\:/Users/ThaiHoc/AndroidStudioProjects/QuanLyNhanSu/app/src/main/res/layout/employee_detail.xml" value="0.3625" />
-        <entry key="..\:/Users/ThaiHoc/AndroidStudioProjects/QuanLyNhanSu/app/src/main/res/layout/item_list_employee.xml" value="0.3625" />
-        <entry key="..\:/Users/ThaiHoc/AndroidStudioProjects/QuanLyNhanSu/app/src/main/res/layout/list_employee.xml" value="0.3625" />
+        <entry key="..\:/LaptrinhTBdidong/code/DHKTPM15A_Nhom12_UngDungQuanLyThongTinNhanSu/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/LaptrinhTBdidong/code/DHKTPM15A_Nhom12_UngDungQuanLyThongTinNhanSu/app/src/main/res/layout/activity_main.xml" value="0.20104166666666667" />
       </map>
     </option>
   </component>
