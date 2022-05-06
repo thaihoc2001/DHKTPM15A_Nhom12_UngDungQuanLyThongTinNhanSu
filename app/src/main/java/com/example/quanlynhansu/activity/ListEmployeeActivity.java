@@ -1,12 +1,16 @@
 package com.example.quanlynhansu.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.quanlynhansu.MainActivity;
 import com.example.quanlynhansu.R;
 import com.example.quanlynhansu.adapter.EmployeeAdapter;
 import com.example.quanlynhansu.entity.Employee;
@@ -47,8 +51,13 @@ public class ListEmployeeActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    Employee employee = dataSnapshot.getValue(Employee.class);
-                    list.add(employee);
+                    try {
+                        Employee employee = dataSnapshot.getValue(Employee.class);
+                        list.add(employee);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+
                 }
                 employeeAdapter1.notifyDataSetChanged();
             }
@@ -56,6 +65,20 @@ public class ListEmployeeActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int idLayout, long l) {
+                Intent i=new Intent(ListEmployeeActivity.this,EmployeeDetailActivity.class);
+                Bundle b=new Bundle();
+                b.putString("name",list.get(idLayout).getName());
+                b.putString("description",list.get(idLayout).getDescription());
+                b.putInt("age",list.get(idLayout).getAge());
+                b.putString("position",list.get(idLayout).getPosition());
+                b.putString("image", list.get(idLayout).getImage());
+                i.putExtras(b);
+                startActivity(i);
             }
         });
     }
