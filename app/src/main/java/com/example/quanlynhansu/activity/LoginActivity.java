@@ -20,29 +20,28 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 public class LoginActivity extends AppCompatActivity {
-    Button btnLogin,btnCreate;
+    Button btnLogin, btnCreate;
     EditText edtUserName, edtPassword;
     private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         btnLogin = findViewById(R.id.btnLogin);
-        btnCreate=findViewById(R.id.btnLoginNow);
+        btnCreate = findViewById(R.id.btnLoginNow);
         edtUserName = findViewById(R.id.edtUserName);
         edtPassword = findViewById(R.id.edtGmail);
 
         mAuth = FirebaseAuth.getInstance();
         btnLogin.setOnClickListener((v) -> {
-            if(edtUserName.getText().length()==0)
-            {
+            if (edtUserName.getText().length() == 0) {
                 edtUserName.setError("Please enter your email!");
-            }
-            else if(edtPassword.getText().length()==0)
-            {
+            } else if (edtPassword.getText().length() == 0) {
                 edtPassword.setError("Please enter your password!");
+            } else {
+                signIn();
             }
-            else {signIn();}
         });
         btnCreate.setOnClickListener(view -> {
             CreateNow();
@@ -50,12 +49,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void CreateNow() {
-        final  Intent intentCreate= new Intent(this,RegisterActivity.class);
+        final Intent intentCreate = new Intent(this, RegisterActivity.class);
         startActivity(intentCreate);
     }
 
-    private void signIn(){
-
+    private void signIn() {
         String email = edtUserName.getText().toString();
         String password = edtPassword.getText().toString();
         final Intent intentUser = new Intent(this, HomeActivity.class);

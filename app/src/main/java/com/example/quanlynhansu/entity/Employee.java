@@ -48,6 +48,32 @@ public class Employee {
         this.description = description;
     }
 
+    public Employee(String name, String position, String image, int age, String description) {
+        this.name = name;
+        this.position = position;
+        this.image = image;
+        this.age = age;
+        this.description = description;
+    }
+
+    public Employee(String name, String position, int age, String description) {
+        this.name = name;
+        this.position = position;
+        this.age = age;
+        this.description = description;
+    }
+
+    public Employee() {
+    }
+
+    public Employee(int id, String name, String position, String image, int age, String description) {
+        this.id = id;
+        this.name = name;
+        this.position = position;
+        this.image = image;
+        this.age = age;
+        this.description = description;
+    }
 
     @Override
     public String toString() {

@@ -24,29 +24,19 @@ import java.util.ArrayList;
 
 public class ListEmployeeActivity extends AppCompatActivity {
 
-//    RecyclerView recyclerView;
     ListView listView;
     EmployeeAdapter employeeAdapter1;
     DatabaseReference database;
-//    EmployeeAdapter employeeAdapter;
     ArrayList<Employee> list;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_employee);
-
-
         listView = findViewById(R.id.listViewItem);
-//        recyclerView = findViewById(R.id.vlistitem);
         database = FirebaseDatabase.getInstance().getReference("Employee");
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//
         list = new ArrayList<Employee>();
-//        employeeAdapter = new EmployeeAdapter(this, list);
         employeeAdapter1 = new EmployeeAdapter(this, list);
         listView.setAdapter(employeeAdapter1);
-//        recyclerView.setAdapter(employeeAdapter);
         database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -61,7 +51,6 @@ public class ListEmployeeActivity extends AppCompatActivity {
                 }
                 employeeAdapter1.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -77,6 +66,7 @@ public class ListEmployeeActivity extends AppCompatActivity {
                 b.putInt("age",list.get(idLayout).getAge());
                 b.putString("position",list.get(idLayout).getPosition());
                 b.putString("image", list.get(idLayout).getImage());
+                b.putString("idPosition", idLayout + "");
                 i.putExtras(b);
                 startActivity(i);
             }
