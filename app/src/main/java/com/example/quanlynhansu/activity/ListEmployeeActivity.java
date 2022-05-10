@@ -41,7 +41,6 @@ public class ListEmployeeActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance().getReference("Employee");
 //        recyclerView.setHasFixedSize(true);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//
         list = new ArrayList<Employee>();
 //        employeeAdapter = new EmployeeAdapter(this, list);
         employeeAdapter1 = new EmployeeAdapter(this, list);

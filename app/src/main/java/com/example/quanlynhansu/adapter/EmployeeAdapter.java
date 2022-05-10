@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.example.quanlynhansu.R;
 import com.example.quanlynhansu.entity.Employee;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -51,4 +53,5 @@ public class EmployeeAdapter extends BaseAdapter {
         Picasso.get().load(arrayList.get(i).getImage()).into(imageView);
         return view;
     }
+
 }

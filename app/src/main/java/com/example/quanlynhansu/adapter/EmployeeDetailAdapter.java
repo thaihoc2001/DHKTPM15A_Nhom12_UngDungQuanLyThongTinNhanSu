@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.example.quanlynhansu.R;
 import com.example.quanlynhansu.entity.Employee;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -62,4 +64,5 @@ public class EmployeeDetailAdapter extends BaseAdapter {
        }
         return view;
     }
+
 }
