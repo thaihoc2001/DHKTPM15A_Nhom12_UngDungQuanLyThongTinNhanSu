@@ -51,6 +51,18 @@ public class EmployeeDetailActivity extends AppCompatActivity {
         System.out.println("idPositon" + idPosition);
 
         database = FirebaseDatabase.getInstance().getReference("Employee");
+        btnUpdate.setOnClickListener(v -> {
+            Intent i=new Intent(EmployeeDetailActivity.this,AddEmployeeActivity.class);
+            Bundle b=new Bundle();
+            b.putString("name", bundle.getString("name"));
+            b.putString("description", bundle.getString("description"));
+            b.putInt("age",bundle.getInt("age"));
+            b.putString("position",bundle.getString("position"));
+//            b.putString("image", list.get(idLayout).getImage());
+            b.putString("idPosition", idPosition + "");
+            i.putExtras(b);
+            startActivity(i);
+        });
 
         btnDelete.setOnClickListener(v -> {
             database.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -89,5 +101,9 @@ public class EmployeeDetailActivity extends AppCompatActivity {
     private void showListEmployee() {
         final Intent intentListEmployee = new Intent(this,ListEmployeeActivity.class);
         startActivity(intentListEmployee);
+    }
+    private void showFormAddEmployee() {
+        final Intent intentAddEmployee = new Intent(this,AddEmployeeActivity.class);
+        startActivity(intentAddEmployee);
     }
 }
