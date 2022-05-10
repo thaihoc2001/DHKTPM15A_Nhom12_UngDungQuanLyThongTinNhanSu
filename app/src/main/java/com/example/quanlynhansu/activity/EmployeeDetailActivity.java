@@ -2,14 +2,18 @@ package com.example.quanlynhansu.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.quanlynhansu.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 public class EmployeeDetailActivity extends AppCompatActivity {
@@ -34,5 +38,36 @@ public class EmployeeDetailActivity extends AppCompatActivity {
         tvName.setText(bundle.getString("name"));
         tvAge.setText(Integer.toString(bundle.getInt("age")));
         Picasso.get().load(bundle.getString("image")).into(imgAvatar);
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateEmployee();
+            }
+        });
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteEmp();
+            }
+        });
+    }
+
+    private void deleteEmp() {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Employee");
+        try {
+            databaseReference.removeValue();
+            Toast.makeText(this, "Employee Deleted", Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+            e.printStackTrace();
+            Toast.makeText(this, "Error !", Toast.LENGTH_SHORT).show();
+        }
+
+     //   Intent i=new Intent(this,ListEmployeeActivity.class);
+    //    startActivity(i);
+    }
+
+    private void updateEmployee() {
+        Intent i=new Intent(this,AddEmployeeActivity.class);
+        startActivity(i);
     }
 }
