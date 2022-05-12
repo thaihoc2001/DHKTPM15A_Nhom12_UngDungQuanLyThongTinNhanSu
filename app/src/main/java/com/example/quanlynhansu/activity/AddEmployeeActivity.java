@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,6 +24,7 @@ import com.google.firebase.database.core.Constants;
 public class AddEmployeeActivity extends AppCompatActivity {
     EditText edtName, edtOld, edtPosition, edtDescription;
     Button btnSave;
+    ImageView btnBack;
     int idPosition, i = 0;
     String idEmployeeFB;
 
@@ -40,18 +42,20 @@ public class AddEmployeeActivity extends AppCompatActivity {
             edtOld.setText(Integer.toString(bundle.getInt("age")));
             idPosition = bundle.getInt("idPosition");
         }
+        btnBack.setOnClickListener((v) -> {
+            if(bundle != null){
+                showListEmployee();
+            }else{
+                showHome();
+            }
+
+        });
         btnSave.setOnClickListener((v) -> {
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference myRef = database.getReference("Employee");
             final String key = database.getReference("Employee").push().getKey();
             final String name = edtName.getText().toString();
             final String position = edtPosition.getText().toString();
-//            int age = 0;
-//            try {
-//                age = Integer.parseInt(edtOld.getText().toString());
-//            }catch (NumberFormatException e){
-//                System.out.println(e);
-//            }
             final int age = Integer.parseInt(edtOld.getText().toString());
             String description = edtDescription.getText().toString();
             if (name != "" && position != "" && age != 0 && description != "" && bundle == null) {
@@ -106,9 +110,14 @@ public class AddEmployeeActivity extends AppCompatActivity {
         edtPosition = findViewById(R.id.txtPosition_add_e);
         edtDescription = findViewById(R.id.txtDescription_add_e);
         btnSave = findViewById(R.id.btnSave_add_e);
+        btnBack = findViewById(R.id.btn_back_add);
     }
     private void showListEmployee() {
         final Intent intentListEmployee = new Intent(this,ListEmployeeActivity.class);
         startActivity(intentListEmployee);
+    }
+    private void showHome() {
+        final Intent intentHome = new Intent(this, HomeActivity.class);
+        startActivity(intentHome);
     }
 }

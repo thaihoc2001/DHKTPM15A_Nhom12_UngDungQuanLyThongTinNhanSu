@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -27,16 +28,21 @@ public class ListEmployeeActivity extends AppCompatActivity {
     ListView listView;
     EmployeeAdapter employeeAdapter1;
     DatabaseReference database;
+    ImageView btnBack;
     ArrayList<Employee> list;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_employee);
+        btnBack = findViewById(R.id.btn_back_list);
         listView = findViewById(R.id.listViewItem);
         database = FirebaseDatabase.getInstance().getReference("Employee");
         list = new ArrayList<Employee>();
         employeeAdapter1 = new EmployeeAdapter(this, list);
         listView.setAdapter(employeeAdapter1);
+        btnBack.setOnClickListener((v) -> {
+            showHome();
+        });
         database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -71,5 +77,9 @@ public class ListEmployeeActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+    private void showHome() {
+        final Intent intentHome = new Intent(this, HomeActivity.class);
+        startActivity(intentHome);
     }
 }
