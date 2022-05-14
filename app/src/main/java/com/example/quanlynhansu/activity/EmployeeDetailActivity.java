@@ -61,7 +61,7 @@ public class EmployeeDetailActivity extends AppCompatActivity {
             b.putString("description", bundle.getString("description"));
             b.putInt("age", bundle.getInt("age"));
             b.putString("position", bundle.getString("position"));
-//            b.putString("image", list.get(idLayout).getImage());
+            b.putString("image", bundle.getString("image"));
             b.putString("idPosition", idPosition + "");
             i.putExtras(b);
             startActivity(i);
