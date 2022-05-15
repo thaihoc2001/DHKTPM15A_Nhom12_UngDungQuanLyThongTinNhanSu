@@ -38,6 +38,7 @@ public class AddEmployeeActivity extends AppCompatActivity {
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference("Images");
     private StorageReference reference = FirebaseStorage.getInstance("gs://quanlynhansu-40e16.appspot.com/").getReference();
     private Uri imageUri;
+    private String url;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ public class AddEmployeeActivity extends AppCompatActivity {
             edtName.setText(bundle.getString("name"));
             edtOld.setText(Integer.toString(bundle.getInt("age")));
             idPosition = bundle.getInt("idPosition");
+            url = bundle.getString("image");
             Picasso.get().load(bundle.getString("image")).into(imgEmployee);
         }
         btnBack.setOnClickListener((v) -> {
@@ -76,7 +78,6 @@ public class AddEmployeeActivity extends AppCompatActivity {
         btnSave.setOnClickListener((v) -> {
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference myRef = database.getReference("Employee");
-            StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtention(imageUri));
             final String key = database.getReference("Employee").push().getKey();
             final String name = edtName.getText().toString();
             final String position = edtPosition.getText().toString();
@@ -86,6 +87,7 @@ public class AddEmployeeActivity extends AppCompatActivity {
 //                uploadToFirebase(imageUri);
 //            }
             if (name != "" && position != "" && age != 0 && description != "" && bundle == null) {
+                StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtention(imageUri));
                 fileRef.putFile(imageUri).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -115,27 +117,42 @@ public class AddEmployeeActivity extends AppCompatActivity {
                                 Employee employee = dataSnapshot.getValue(Employee.class);
                                 System.out.println("i ne" + i);
                                 if (i == idPosition) {
-                                    fileRef.putFile(imageUri).addOnCompleteListener(task -> {
-                                        if (task.isSuccessful()) {
-                                            fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                                @Override
-                                                public void onSuccess(Uri uri) {
-                                                    Employee employeeUpdate = new Employee(name, position, uri.toString(), age, description);
-                                                    idEmployeeFB = dataSnapshot.getKey();
-                                                    myRef.child(idEmployeeFB).setValue(employeeUpdate).addOnCompleteListener(task -> {
-                                                        if (task.isSuccessful()) {
-                                                            Toast.makeText(AddEmployeeActivity.this, "Update Successfully!", Toast.LENGTH_SHORT).show();
-                                                            showListEmployee();
-                                                        } else {
-                                                            Toast.makeText(AddEmployeeActivity.this, "Update fail!", Toast.LENGTH_SHORT).show();
-                                                        }
-                                                    });
-                                                }
-                                            });
-                                        } else {
-                                            Toast.makeText(AddEmployeeActivity.this, "Update Image fail!", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
+                                    if(imageUri != null){
+                                        StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtention(imageUri));
+                                        fileRef.putFile(imageUri).addOnCompleteListener(task -> {
+                                            if (task.isSuccessful()) {
+                                                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                    @Override
+                                                    public void onSuccess(Uri uri) {
+                                                        Employee employeeUpdate = new Employee(name, position, uri.toString(), age, description);
+                                                        idEmployeeFB = dataSnapshot.getKey();
+                                                        myRef.child(idEmployeeFB).setValue(employeeUpdate).addOnCompleteListener(task -> {
+                                                            if (task.isSuccessful()) {
+                                                                Toast.makeText(AddEmployeeActivity.this, "Update Successfully!", Toast.LENGTH_SHORT).show();
+                                                                showListEmployee();
+                                                            } else {
+                                                                Toast.makeText(AddEmployeeActivity.this, "Update fail!", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        });
+                                                    }
+                                                });
+                                            } else {
+                                                Toast.makeText(AddEmployeeActivity.this, "Update Image fail!", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                                    }else{
+                                        Employee employeeUpdate = new Employee(name, position, url, age, description);
+                                        idEmployeeFB = dataSnapshot.getKey();
+                                        myRef.child(idEmployeeFB).setValue(employeeUpdate).addOnCompleteListener(task -> {
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(AddEmployeeActivity.this, "Update Successfully!", Toast.LENGTH_SHORT).show();
+                                                showListEmployee();
+                                            } else {
+                                                Toast.makeText(AddEmployeeActivity.this, "Update fail!", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                                    }
+
                                     return;
                                 }
                                 i = i + 1;
